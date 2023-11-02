@@ -10,7 +10,7 @@ cmd = subprocess.run(["gdalinfo", "--version"], capture_output=True, text=True)
 print(cmd.stdout)
 
 # get a list of all .tif in the input folder
-in_files = glob.glob('input/*.tif')
+in_files = glob.glob('/in/*.tif')
 print(f"Found {len(in_files)} input tif.")
 
 # initialize a driver
@@ -26,7 +26,7 @@ for fname in tqdm(in_files):
     datasource = gdal.Open(fname, gdal.GA_ReadOnly)
 
     # create the cog
-    out_fname = os.path.join('output', os.path.basename(fname))
+    out_fname = os.path.join('out', os.path.basename(fname))
 
     out_cog = driver.CreateCopy(out_fname, datasource, options=OUT_ARGS)
     out_cog = None

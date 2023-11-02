@@ -2,8 +2,8 @@ FROM ghcr.io/osgeo/gdal:ubuntu-small-3.3.0
 ARG DEVEL
 
 # CREATE SOME DIRECTORIES
-RUN mkdir /input
-RUN mkdir /output
+RUN mkdir /in
+RUN mkdir /out
 RUN mkdir /src
 
 # Install pip
@@ -20,4 +20,4 @@ RUN if [[ -n "$DEVEL" ]]; then pip install ipython; fi
 # copy over all the files
 COPY ./src /src
 
-CMD ["python", "/src/main.py"]
+CMD ["python", "/src/run.py"]
