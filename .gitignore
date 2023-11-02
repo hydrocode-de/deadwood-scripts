@@ -161,3 +161,4 @@ cython_debug/
 
 # project settings
 upload_data/*
+cogs/*
