@@ -1,4 +1,4 @@
-FROM ghcr.io/osgeo/gdal:ubuntu-small-3.3.0
+FROM ghcr.io/osgeo/gdal:ubuntu-small-3.3.0-arm64
 ARG DEVEL
 
 # CREATE SOME DIRECTORIES
@@ -11,13 +11,13 @@ RUN apt update
 RUN apt install -y python3-pip
 
 # install some additional packages
-RUN pip install tqdm
+RUN pip install click
 
 # This is only for development
-RUN if [[ -n "$DEVEL" ]]; then pip install ipython; fi
+RUN pip install ipython
 
 
 # copy over all the files
 COPY ./src /src
 
-CMD ["python", "/src/run.py"]
+CMD ["python", "/src/compress.py"]
