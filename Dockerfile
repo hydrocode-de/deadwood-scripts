@@ -20,4 +20,5 @@ RUN pip install ipython
 # copy over all the files
 COPY ./src /src
 
+WORKDIR /src
 CMD ["python", "/src/compress.py"]
